@@ -27,6 +27,7 @@ func _physics_process(delta):
 	var direction = Vector2.ZERO
 	if _target:
 		direction = get_direction(_target)
+		direction = stop_near_target(_target, direction)
 		move_and_slide(direction * speed)
 	else:
 		_target = get_target(mode)
@@ -47,6 +48,15 @@ func get_target(current_mode: int) -> Vector2:
 
 func get_direction(target: Vector2) -> Vector2:
 	return global_position.direction_to(target)
+
+
+func stop_near_target(target: Vector2, direction: Vector2) -> Vector2:
+	var out: = direction
+	
+	if global_position.distance_to(target) < 5:
+		out = Vector2.ZERO
+	
+	return out
 
 
 func animate_move(direction: Vector2) -> void:
