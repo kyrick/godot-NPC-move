@@ -19,6 +19,7 @@ func _on_MoveResetTimer_timeout():
 
 func _input(event):
 	if event is InputEventMouseButton:
+		_target = Vector2.ZERO
 		_mouse_target = event.position
 
 
