@@ -8,6 +8,8 @@ NPC has two modes of movement selectable in editor:
 
 There is no pathfinding. The NPC will try to find the shortest path and slide around any objets in it's way if it can.
 
+[Short video of this project in action.](https://www.youtube.com/watch?v=meWlQF8Csbg)
+
 ![Image of TestLevel](TestLevel.png)
 
 # Credits
