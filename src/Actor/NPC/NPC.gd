@@ -20,8 +20,8 @@ func _input(event):
 
 func _physics_process(delta):
 	if _target:
-		var dir = get_direction(_target)
-		move_and_slide(dir * speed)
+		var direction = get_direction(_target)
+		move_and_slide(direction * speed)
 	else:
 		_target = get_target(mode)
 
@@ -40,7 +40,7 @@ func get_target(current_mode: int) -> Vector2:
 
 func get_direction(target: Vector2) -> Vector2:
 	var current_loc = global_position
-	var direction = target.direction_to(target)
+	var direction = global_position.direction_to(target)
 	return direction
 
 
