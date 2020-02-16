@@ -13,6 +13,10 @@ var _target: = Vector2.ZERO
 var _mouse_target: = Vector2.ZERO
 
 
+func _on_MoveResetTimer_timeout():
+	_target = Vector2.ZERO
+
+
 func _input(event):
 	if event is InputEventMouseButton:
 		_mouse_target = event.position
@@ -42,7 +46,3 @@ func get_direction(target: Vector2) -> Vector2:
 	var current_loc = global_position
 	var direction = global_position.direction_to(target)
 	return direction
-
-
-func _on_MoveResetTimer_timeout():
-	_target = Vector2.ZERO
