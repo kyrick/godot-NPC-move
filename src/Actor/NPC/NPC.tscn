@@ -82,7 +82,7 @@ collision_layer = 2
 collision_mask = 8
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="NPCAnimations" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
 animation = "walk_down"
 frame = 2

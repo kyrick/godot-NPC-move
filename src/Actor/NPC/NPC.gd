@@ -23,11 +23,13 @@ func _input(event):
 
 
 func _physics_process(delta):
+	var direction = Vector2.ZERO
 	if _target:
-		var direction = get_direction(_target)
+		direction = get_direction(_target)
 		move_and_slide(direction * speed)
 	else:
 		_target = get_target(mode)
+	animate_move(direction)
 
 
 func get_target(current_mode: int) -> Vector2:
@@ -46,3 +48,16 @@ func get_direction(target: Vector2) -> Vector2:
 	var current_loc = global_position
 	var direction = global_position.direction_to(target)
 	return direction
+
+
+func animate_move(direction: Vector2) -> void:
+	if direction.y >= 0.707:
+		$NPCAnimations.play("walk_down")
+	elif direction.y <= -0.707:
+		$NPCAnimations.play("walk_up")
+	elif direction.x >= 0.707:
+		$NPCAnimations.play("walk_right")
+	elif direction.x <= -0.707:
+		$NPCAnimations.play("walk_left")
+	else:
+		$NPCAnimations.stop()
