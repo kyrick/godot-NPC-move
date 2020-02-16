@@ -41,14 +41,12 @@ func get_target(current_mode: int) -> Vector2:
 	elif current_mode == MODE.RANDOM_MOVE:
 		$MoveResetTimer.start()
 		target = Vector2(rand_range(x_min, x_max), rand_range(y_min, y_max))
-		
+	
 	return target
 
 
 func get_direction(target: Vector2) -> Vector2:
-	var current_loc = global_position
-	var direction = global_position.direction_to(target)
-	return direction
+	return global_position.direction_to(target)
 
 
 func animate_move(direction: Vector2) -> void:
