@@ -40,7 +40,7 @@ func get_target(current_mode: int) -> Vector2:
 	if current_mode == MODE.MOUSE_FOLLOW:
 		target = _mouse_target
 	elif current_mode == MODE.RANDOM_MOVE:
-		$MoveResetTimer.start()
+		$MoveResetTimer.start($MoveResetTimer.get_wait_time())
 		target = Vector2(rand_range(x_min, x_max), rand_range(y_min, y_max))
 	
 	return target
